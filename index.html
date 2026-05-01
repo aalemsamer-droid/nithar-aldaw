@@ -737,17 +737,104 @@
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-bg"></div>
-  <div class="hero-decor">
-    <!-- Decorative olive branches -->
-    <div class="logo-wrapper">
-  <img src="logo.png" alt="نثار الضوء" class="main-logo">
-</div>
+ <div class="logo-wrapper">
+    <svg class="main-logo" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+      <!-- Outer decorative ring -->
+      <circle cx="100" cy="100" r="95" fill="none" stroke="#c9922a" stroke-width="1" opacity="0.4"/>
+      <circle cx="100" cy="100" r="90" fill="none" stroke="#c9922a" stroke-width="0.5" opacity="0.2" stroke-dasharray="4 3"/>
+
+      <!-- Palestinian flag stripes (subtle arc at bottom) -->
+      <path d="M 18,130 A 86,86 0 0 0 182,130" fill="#1a3520" opacity="0.5"/>
+      <path d="M 12,140 A 92,92 0 0 0 188,140" fill="none" stroke="#c0392b" stroke-width="3" opacity="0.5"/>
+      <path d="M 10,150 A 94,94 0 0 0 190,150" fill="none" stroke="#0a0a0a" stroke-width="3" opacity="0.4"/>
+      <path d="M 12,160 A 92,92 0 0 0 188,160" fill="none" stroke="#f5f0e8" stroke-width="3" opacity="0.3"/>
+      <!-- Green triangle hint -->
+      <path d="M 15,155 L 45,100 L 15,45 Z" fill="#2d5a3a" opacity="0.35"/>
+
+      <!-- Inner circle background -->
+      <circle cx="100" cy="100" r="78" fill="#0e1a10" opacity="0.8"/>
+      <circle cx="100" cy="100" r="72" fill="none" stroke="#4a7c59" stroke-width="0.8" opacity="0.4"/>
+
+      <!-- Olive branch RIGHT -->
+      <g opacity="0.9">
+        <path d="M100,100 Q125,82 148,65" fill="none" stroke="#4a7c59" stroke-width="1.5" stroke-linecap="round"/>
+        <ellipse cx="118" cy="88" rx="12" ry="5" fill="#4a7c59" transform="rotate(-35 118 88)"/>
+        <ellipse cx="130" cy="79" rx="11" ry="4.5" fill="#3a6a49" transform="rotate(-45 130 79)"/>
+        <ellipse cx="140" cy="72" rx="10" ry="4" fill="#5a8c65" transform="rotate(-50 140 72)"/>
+        <circle cx="148" cy="66" r="3.5" fill="#c0392b" opacity="0.85"/>
+        <circle cx="138" cy="74" r="2.5" fill="#c0392b" opacity="0.7"/>
+      </g>
+
+      <!-- Olive branch LEFT -->
+      <g opacity="0.9">
+        <path d="M100,100 Q75,82 52,65" fill="none" stroke="#4a7c59" stroke-width="1.5" stroke-linecap="round"/>
+        <ellipse cx="82" cy="88" rx="12" ry="5" fill="#4a7c59" transform="rotate(35 82 88)"/>
+        <ellipse cx="70" cy="79" rx="11" ry="4.5" fill="#3a6a49" transform="rotate(45 70 79)"/>
+        <ellipse cx="60" cy="72" rx="10" ry="4" fill="#5a8c65" transform="rotate(50 60 72)"/>
+        <circle cx="52" cy="66" r="3.5" fill="#c0392b" opacity="0.85"/>
+        <circle cx="62" cy="74" r="2.5" fill="#c0392b" opacity="0.7"/>
+      </g>
+
+      <!-- Olive branch DOWN-RIGHT -->
+      <g opacity="0.75">
+        <path d="M100,100 Q118,120 132,142" fill="none" stroke="#4a7c59" stroke-width="1.2" stroke-linecap="round"/>
+        <ellipse cx="112" cy="113" rx="10" ry="4" fill="#4a7c59" transform="rotate(55 112 113)"/>
+        <ellipse cx="120" cy="124" rx="9" ry="3.5" fill="#3a6a49" transform="rotate(60 120 124)"/>
+        <circle cx="132" cy="141" r="3" fill="#c0392b" opacity="0.75"/>
+      </g>
+
+      <!-- Olive branch DOWN-LEFT -->
+      <g opacity="0.75">
+        <path d="M100,100 Q82,120 68,142" fill="none" stroke="#4a7c59" stroke-width="1.2" stroke-linecap="round"/>
+        <ellipse cx="88" cy="113" rx="10" ry="4" fill="#4a7c59" transform="rotate(-55 88 113)"/>
+        <ellipse cx="80" cy="124" rx="9" ry="3.5" fill="#3a6a49" transform="rotate(-60 80 124)"/>
+        <circle cx="68" cy="141" r="3" fill="#c0392b" opacity="0.75"/>
+      </g>
+
+      <!-- Sun / Light burst center -->
+      <g>
+        <!-- Rays -->
+        <g stroke="#e8b84b" stroke-width="1.2" stroke-linecap="round" opacity="0.7">
+          <line x1="100" y1="74" x2="100" y2="68"/>
+          <line x1="100" y1="126" x2="100" y2="132"/>
+          <line x1="74" y1="100" x2="68" y2="100"/>
+          <line x1="126" y1="100" x2="132" y2="100"/>
+          <line x1="81" y1="81" x2="77" y2="77"/>
+          <line x1="119" y1="119" x2="123" y2="123"/>
+          <line x1="119" y1="81" x2="123" y2="77"/>
+          <line x1="81" y1="119" x2="77" y2="123"/>
+        </g>
+        <!-- Glow rings -->
+        <circle cx="100" cy="100" r="20" fill="none" stroke="#e8b84b" stroke-width="0.5" opacity="0.3"/>
+        <circle cx="100" cy="100" r="15" fill="none" stroke="#e8b84b" stroke-width="0.8" opacity="0.4"/>
+        <!-- Central sun -->
+        <circle cx="100" cy="100" r="11" fill="#c9922a" opacity="0.95"/>
+        <circle cx="100" cy="100" r="7" fill="#e8b84b"/>
+        <circle cx="100" cy="100" r="4" fill="#fff9e0"/>
+      </g>
+
+      <!-- Arabic text -->
+      <text x="100" y="170" text-anchor="middle" font-family="Amiri, serif" font-size="13" fill="#e8b84b" opacity="0.9">نثار الضوء</text>
+      <text x="100" y="183" text-anchor="middle" font-family="Tajawal, sans-serif" font-size="7.5" fill="#6aab78" letter-spacing="1" opacity="0.8">فلسطين • الجزائر</text>
+    </svg>
+  </div>
 
   <!-- MAIN LOGO SVG -->
- <div class="logo-wrapper">
-  <img src="logo.png" alt="نثار الضوء" class="main-logo">
-</div>
+<svg width="300" height="400" style="right: -50px; top: 100px;" viewBox="0 0 300 400">
+      <path d="M150,400 Q120,300 100,200 Q80,100 130,20" fill="none" stroke="#4a7c59" stroke-width="2"/>
+      <ellipse cx="95" cy="180" rx="22" ry="9" fill="#4a7c59" transform="rotate(-40 95 180)"/>
+      <ellipse cx="108" cy="150" rx="20" ry="8" fill="#3a6a49" transform="rotate(-20 108 150)"/>
+      <ellipse cx="118" cy="120" rx="22" ry="9" fill="#4a7c59" transform="rotate(-10 118 120)"/>
+      <ellipse cx="125" cy="90" rx="20" ry="8" fill="#3a6a49" transform="rotate(5 125 90)"/>
+      <ellipse cx="85" cy="210" rx="20" ry="8" fill="#4a7c59" transform="rotate(-55 85 210)"/>
+    </svg>
+    <svg width="300" height="400" style="left: -50px; top: 150px;" viewBox="0 0 300 400">
+      <path d="M150,400 Q180,300 200,200 Q220,100 170,20" fill="none" stroke="#4a7c59" stroke-width="2"/>
+      <ellipse cx="205" cy="180" rx="22" ry="9" fill="#4a7c59" transform="rotate(40 205 180)"/>
+      <ellipse cx="192" cy="150" rx="20" ry="8" fill="#3a6a49" transform="rotate(20 192 150)"/>
+      <ellipse cx="182" cy="120" rx="22" ry="9" fill="#4a7c59" transform="rotate(10 182 120)"/>
+    </svg>
+  </div>
 
   <h1>نثار<span>الضوء</span></h1>
   <p class="hero-tagline">الفن ضوء ونحن نثاره</p>
