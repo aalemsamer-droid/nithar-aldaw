@@ -1173,36 +1173,64 @@
     <div class="fade-in">
       <p class="section-label">الفريق</p>
       <h2 class="section-title">أعضاء <em>الفريق</em></h2>
+      <p style="opacity:0.6; margin-top:0.5rem; font-size:0.95rem;">اضغط على أي عضو لمعرفة المزيد عنه</p>
     </div>
-    <div class="team-grid">
-      <div class="team-card fade-in">
-        <div class="team-avatar">م</div>
-        <h4>مجد القبالي</h4>
-        <span>مؤسس الفريق</span>
-      </div>
-      <div class="team-card fade-in">
-        <div class="team-avatar">س</div>
-        <h4>سامر سالم</h4>
-        <span>مسؤولة الفعاليات</span>
-      </div>
-      <div class="team-card fade-in">
-        <div class="team-avatar">ي</div>
-        <h4>يوسف عبد الرحمن</h4>
-        <span>مسؤول الإعلام</span>
-      </div>
-      <div class="team-card fade-in">
-        <div class="team-avatar">ي</div>
-        <h4>يوسف عمرو</h4>
-        <span>الاعضاء</span>
-        </div>
-      <div class="team-card fade-in">
-        <div class="team-avatar">م</div>
-        <h4>محمود طردة</h4>
-        <span>الاعضاء</span>
-      </div>
-    </div>
+    <div class="team-grid" id="teamGrid"></div>
   </div>
 </section>
+
+<!-- MEMBER MODAL -->
+<div id="memberModal" style="
+  display:none; position:fixed; inset:0; z-index:10000;
+  background:rgba(26,16,8,0.75); backdrop-filter:blur(6px);
+  align-items:center; justify-content:center; padding:1.5rem;
+">
+  <div id="modalBox" style="
+    background:#f5efe3; border-radius:12px; max-width:520px; width:100%;
+    padding:2.5rem 2rem; position:relative; direction:rtl;
+    border:1px solid rgba(45,90,58,0.2);
+    box-shadow: 0 20px 60px rgba(26,16,8,0.3);
+    max-height:90vh; overflow-y:auto;
+  ">
+    <!-- زر الإغلاق -->
+    <button onclick="closeModal()" style="
+      position:absolute; top:1rem; left:1rem;
+      background:rgba(45,90,58,0.1); border:none; border-radius:50%;
+      width:36px; height:36px; cursor:pointer; font-size:1.1rem;
+      color:#2d5a3a; display:flex; align-items:center; justify-content:center;
+      transition: background 0.2s;
+    " onmouseover="this.style.background='rgba(45,90,58,0.2)'" onmouseout="this.style.background='rgba(45,90,58,0.1)'">✕</button>
+
+    <!-- صورة العضو -->
+    <div style="text-align:center; margin-bottom:1.5rem;">
+      <div id="modalAvatar" style="
+        width:100px; height:100px; border-radius:50%;
+        background:#2d5a3a; margin:0 auto 1rem;
+        display:flex; align-items:center; justify-content:center;
+        font-family:'Amiri',serif; font-size:2.8rem; color:#fdfaf5;
+        border:3px solid rgba(184,116,26,0.4);
+        overflow:hidden;
+      "></div>
+      <h2 id="modalName" style="font-family:'Amiri',serif; font-size:1.8rem; color:#2d5a3a; margin-bottom:0.3rem;"></h2>
+      <span id="modalRole" style="font-size:0.85rem; color:#4a7c59; letter-spacing:0.08em; text-transform:uppercase;"></span>
+    </div>
+
+    <!-- فاصل -->
+    <div style="height:1px; background:rgba(45,90,58,0.15); margin:1.2rem 0;"></div>
+
+    <!-- نبذة -->
+    <div id="modalBioSection" style="margin-bottom:1.2rem;">
+      <p style="font-size:0.78rem; letter-spacing:0.15em; text-transform:uppercase; color:#4a7c59; margin-bottom:0.5rem;">نبذة</p>
+      <p id="modalBio" style="font-size:1rem; line-height:1.8; color:#3a2010; opacity:0.85;"></p>
+    </div>
+
+    <!-- الإنجازات -->
+    <div id="modalAchievementsSection">
+      <p style="font-size:0.78rem; letter-spacing:0.15em; text-transform:uppercase; color:#4a7c59; margin-bottom:0.8rem;">إنجازاته / مساهماته</p>
+      <ul id="modalAchievements" style="list-style:none; padding:0; display:flex; flex-direction:column; gap:0.6rem;"></ul>
+    </div>
+  </div>
+</div>
 
 <!-- CONTACT -->
 <section id="contact" class="contact-section">
@@ -1245,6 +1273,127 @@
 </footer>
 
 <script>
+  // ══════════════════════════════════════════════
+  //  بيانات الأعضاء — عدّل هنا بسهولة
+  // ══════════════════════════════════════════════
+  const members = [
+    {
+      name: "مجد القبالي",
+      role: "مؤسس الفريق",
+      initial: "م",
+      bio: "مؤسس نثار الضوء وصاحب الرؤية التي انطلقت منها الشرارة الأولى. يؤمن بأن الثقافة هي أقوى أداة لإيصال صوت فلسطين.",
+      achievements: [
+        "🌱 أسس الفريق وصاغ رؤيته الثقافية",
+        "🎤 نظّم أولى الأمسيات الشعرية في وهران",
+        "🤝 بنى شراكات مع جمعيات ثقافية جزائرية"
+      ]
+    },
+    {
+      name: "سامر سالم",
+      role: "مسؤول الفعاليات",
+      initial: "س",
+      bio: "العقل المدبّر خلف كل فعالية ينظمها الفريق. يتابع كل تفاصيل التنظيم بدقة واحترافية عالية.",
+      achievements: [
+        "📅 نظّم أكثر من ١٥ فعالية ثقافية",
+        "🎭 أشرف على إنتاج أول معرض فني للفريق",
+        "📢 أدار حملات التضامن المجتمعي"
+      ]
+    },
+    {
+      name: "يوسف عبد الرحمن",
+      role: "مسؤول الإعلام",
+      initial: "ي",
+      bio: "يتولى إدارة الحضور الرقمي للفريق ويحكي قصة نثار الضوء للعالم عبر المنصات الإعلامية المختلفة.",
+      achievements: [
+        "📸 بنى الهوية البصرية للفريق",
+        "📱 أدار صفحات التواصل الاجتماعي",
+        "✍️ كتب أكثر من ٣٠ مقالاً توعوياً"
+      ]
+    },
+    {
+      name: "يوسف عمرو",
+      role: "عضو",
+      initial: "ي",
+      bio: "عضو فاعل في الفريق يساهم في الأنشطة الثقافية وينقل صوت فلسطين بشغف وإخلاص.",
+      achievements: [
+        "🎨 شارك في ورش الكتابة الإبداعية",
+        "🤝 مشارك في الفعاليات التضامنية"
+      ]
+    },
+    {
+      name: "محمود طردة",
+      role: "عضو",
+      initial: "م",
+      bio: "عضو متحمس يؤمن بدور الشباب في إحياء الثقافة الفلسطينية والحفاظ على هويتها.",
+      achievements: [
+        "🎵 شارك في الفعاليات الموسيقية والفنية",
+        "📚 مساهم في تنظيم الندوات التوعوية"
+      ]
+    }
+  ];
+
+  // ══════════════════════════════════════════════
+  //  بناء كروت الأعضاء
+  // ══════════════════════════════════════════════
+  const grid = document.getElementById('teamGrid');
+  members.forEach((m, i) => {
+    const card = document.createElement('div');
+    card.className = 'team-card fade-in';
+    card.style.cursor = 'pointer';
+    card.innerHTML = `
+      <div class="team-avatar">${m.initial}</div>
+      <h4>${m.name}</h4>
+      <span>${m.role}</span>
+      <p style="font-size:0.78rem; color:#4a7c59; margin-top:0.6rem; opacity:0.8;">← اضغط للمزيد</p>
+    `;
+    card.addEventListener('click', () => openModal(i));
+    grid.appendChild(card);
+  });
+
+  // ══════════════════════════════════════════════
+  //  Modal Logic
+  // ══════════════════════════════════════════════
+  function openModal(i) {
+    const m = members[i];
+    document.getElementById('modalAvatar').textContent = m.initial;
+    document.getElementById('modalName').textContent = m.name;
+    document.getElementById('modalRole').textContent = m.role;
+    document.getElementById('modalBio').textContent = m.bio;
+
+    const ul = document.getElementById('modalAchievements');
+    ul.innerHTML = '';
+    m.achievements.forEach(a => {
+      const li = document.createElement('li');
+      li.style.cssText = 'background:rgba(45,90,58,0.07); border:1px solid rgba(45,90,58,0.12); border-radius:6px; padding:0.6rem 1rem; font-size:0.92rem; color:#3a2010; line-height:1.6;';
+      li.textContent = a;
+      ul.appendChild(li);
+    });
+
+    const modal = document.getElementById('memberModal');
+    modal.style.display = 'flex';
+    setTimeout(() => { modal.style.opacity = '1'; }, 10);
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeModal() {
+    const modal = document.getElementById('memberModal');
+    modal.style.display = 'none';
+    document.body.style.overflow = '';
+  }
+
+  // إغلاق بالضغط خارج الـ modal
+  document.getElementById('memberModal').addEventListener('click', function(e) {
+    if (e.target === this) closeModal();
+  });
+
+  // إغلاق بـ ESC
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') closeModal();
+  });
+
+  // ══════════════════════════════════════════════
+  //  Fade-in Observer
+  // ══════════════════════════════════════════════
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry, i) => {
       if (entry.isIntersecting) {
