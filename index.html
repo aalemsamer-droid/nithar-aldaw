@@ -900,6 +900,7 @@
   <ul class="nav-links">
     <li><a href="#about">من نحن</a></li>
     <li><a href="#activities">أنشطتنا</a></li>
+    <li><a href="#news">الأخبار</a></li>
     <li><a href="#mission">رسالتنا</a></li>
     <li><a href="#team">الفريق</a></li>
     <li><a href="#contact">تواصل معنا</a></li>
@@ -1147,6 +1148,82 @@
   </div>
 </section>
 
+<!-- NEWS -->
+<section id="news" style="padding:6rem 2rem; background:var(--bg-main);">
+  <div style="max-width:1100px; margin:0 auto;">
+    <div class="fade-in">
+      <p class="section-label">أحداثنا</p>
+      <h2 class="section-title">آخر <em>الأخبار</em></h2>
+    </div>
+    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:1.5rem; margin-top:2.5rem;">
+
+      <!-- كارت المسرحية -->
+      <article class="fade-in" style="
+        background:rgba(255,255,255,0.65);
+        border:1px solid rgba(45,90,58,0.15);
+        border-radius:10px; overflow:hidden;
+        transition: transform 0.3s, box-shadow 0.3s;
+        cursor:pointer;
+      " onmouseover="this.style.transform='translateY(-5px)';this.style.boxShadow='0 12px 35px rgba(45,90,58,0.15)'"
+         onmouseout="this.style.transform='';this.style.boxShadow=''"
+         onclick="window.location.href='masrahiya.html'">
+        <!-- صورة/غلاف -->
+        <div style="
+          height:180px;
+          background: linear-gradient(135deg, #1a0f08 0%, #2d5a3a 50%, #c0392b 100%);
+          display:flex; align-items:center; justify-content:center;
+          position:relative; overflow:hidden;
+        ">
+          <div style="font-size:4rem; opacity:0.85; filter:drop-shadow(0 4px 12px rgba(0,0,0,0.5));">🎭</div>
+          <div style="
+            position:absolute; bottom:0; left:0; right:0;
+            background:linear-gradient(to top, rgba(26,15,8,0.8), transparent);
+            padding:1rem;
+          ">
+            <span style="
+              background:rgba(192,57,43,0.9); color:#fff;
+              font-size:0.72rem; padding:0.25rem 0.7rem; border-radius:99px;
+              letter-spacing:0.1em;
+            ">عرض مسرحي</span>
+          </div>
+        </div>
+        <!-- المحتوى -->
+        <div style="padding:1.5rem;">
+          <p style="font-size:0.78rem; color:#4a7c59; margin-bottom:0.5rem; letter-spacing:0.05em;">
+            📅 2025 · الجزائر العاصمة
+          </p>
+          <h3 style="font-family:'Amiri',serif; font-size:1.35rem; color:#2d5a3a; line-height:1.4; margin-bottom:0.7rem;">
+            كيف أفقد ذاكرتي
+          </h3>
+          <p style="font-size:0.9rem; line-height:1.7; color:#3a2010; opacity:0.75; margin-bottom:1.2rem;">
+            عرض مسرحي مؤثر يحكي قصة أسير فلسطيني داخل غرفة التحقيق، يناضل للحفاظ على ذاكرته وهويته في مواجهة الاحتلال.
+          </p>
+          <div style="display:flex; align-items:center; gap:0.4rem; color:#2d5a3a; font-size:0.88rem; font-weight:600;">
+            اقرأ التفاصيل
+            <span style="font-size:1.1rem;">←</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- كارت "قريباً" — تقدر تضيف أخبار هنا -->
+      <article class="fade-in" style="
+        background:rgba(45,90,58,0.05);
+        border:1px dashed rgba(45,90,58,0.25);
+        border-radius:10px;
+        display:flex; flex-direction:column;
+        align-items:center; justify-content:center;
+        min-height:320px; text-align:center; padding:2rem;
+      ">
+        <div style="font-size:2.5rem; margin-bottom:1rem; opacity:0.4;">✨</div>
+        <p style="color:#2d5a3a; opacity:0.5; font-size:0.95rem; line-height:1.7;">
+          المزيد من الأخبار<br>قريباً...
+        </p>
+      </article>
+
+    </div>
+  </div>
+</section>
+
 <!-- MISSION -->
 <section id="mission" class="mission-section">
   <div class="mission-bg"></div>
@@ -1284,17 +1361,17 @@
       bio: "مؤسس نثار الضوء وصاحب الرؤية التي انطلقت منها الشرارة الأولى. يؤمن بأن الثقافة هي أقوى أداة لإيصال صوت فلسطين.",
       achievements: [
         "🌱 أسس الفريق وصاغ رؤيته الثقافية",
-        "🎤 نظّم أولى المسحريات في الجزائر",
+        "🎤 نظّم أولى الأمسيات الشعرية في وهران",
         "🤝 بنى شراكات مع جمعيات ثقافية جزائرية"
       ]
     },
     {
       name: "سامر سالم",
-      role: "مسؤول التطوير والتصميم",
+      role: "مسؤول الفعاليات",
       initial: "س",
       bio: "العقل المدبّر خلف كل فعالية ينظمها الفريق. يتابع كل تفاصيل التنظيم بدقة واحترافية عالية.",
       achievements: [
-        "📅 مثل في مسرحية الجزائر",
+        "📅 نظّم أكثر من ١٥ فعالية ثقافية",
         "🎭 أشرف على إنتاج أول معرض فني للفريق",
         "📢 أدار حملات التضامن المجتمعي"
       ]
@@ -1307,7 +1384,7 @@
       achievements: [
         "📸 بنى الهوية البصرية للفريق",
         "📱 أدار صفحات التواصل الاجتماعي",
-        "✍️صمم فيديوهات عرضت بالمسرحية"
+        "✍️ كتب أكثر من ٣٠ مقالاً توعوياً"
       ]
     },
     {
@@ -1326,7 +1403,7 @@
       initial: "م",
       bio: "عضو متحمس يؤمن بدور الشباب في إحياء الثقافة الفلسطينية والحفاظ على هويتها.",
       achievements: [
-        "🎵 شارك في المسرحية التي حصلت بالجزائر",
+        "🎵 شارك في الفعاليات الموسيقية والفنية",
         "📚 مساهم في تنظيم الندوات التوعوية"
       ]
     }
